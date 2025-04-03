@@ -2,6 +2,8 @@ spring:
   application:
     name: blog-gateway
   cloud:
+    loadbalancer:
+        enabled: true
     gateway:
       discovery:
         locator:
@@ -17,3 +19,6 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+jwt:
+  key: KR+NTtQXmg11QLDbT3HIiQsei4WCPs8+hFaD3mgSTk0=

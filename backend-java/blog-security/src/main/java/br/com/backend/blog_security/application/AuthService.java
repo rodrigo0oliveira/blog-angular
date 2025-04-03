@@ -8,7 +8,6 @@ import br.com.backend.blog_security.domain.dto.UserRequiredDto;
 import br.com.backend.blog_security.infra.repository.RoleRepository;
 import br.com.backend.blog_security.infra.repository.UserRepository;
 import br.com.backend.blog_security.security.TokenProvider;
-import jakarta.servlet.ServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,7 +17,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.Collections;
 
 @RequiredArgsConstructor
@@ -66,13 +64,6 @@ public class AuthService {
         }
     }
 
-    public String validate(String token, ServletResponse response) throws IOException {
-        boolean isValid = provider.isValid(token,response);
-        if(isValid) {
-            return "Token valido";
-        }
-        throw new RuntimeException("Token invalido");
-    }
 
 
 
